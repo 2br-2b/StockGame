@@ -17,3 +17,4 @@ VERY VERY EARLY STOCK PICK GAME CODE
 
 # Contributors
 [nje331](https://github.com/nje331)
+[John Wuller](https://codegito.xyz)

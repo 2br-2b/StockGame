@@ -1,5 +1,5 @@
+import os
 import sqlite3
-import os 
 
 #TODO is this GDPR compliant, and does it need to be?
 
@@ -10,6 +10,7 @@ import os
 
 
 DB_NAME = os.getenv('DB_NAME')
+assert DB_NAME is not None
 conn = sqlite3.connect(DB_NAME)
 cursor = conn.cursor()
 cursor.execute("PRAGMA foreign_keys = ON;") # Enable foreign key constraint enforcement (important for data integrity (According to Gemini))

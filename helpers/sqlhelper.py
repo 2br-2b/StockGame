@@ -1,6 +1,7 @@
 # Misc helpers
 import sqlite3
-from datetime import datetime, date
+from datetime import date, datetime
+
 
 def _iso8601(date_type:str='datetime'): # Get an ISO formatted datetime
         now = datetime.now()
@@ -103,7 +104,7 @@ class SqlHelper: # Simple helper for SQL
     
         return self._error(reason='inserted', more_info=self.cur.lastrowid)
         
-    def get(self, table:str, columns:list=["*"], filters:dict=None, order:dict=None): 
+    def get(self, table:str, columns:list=["*"], filters:dict|None=None, order:dict|None=None): 
         """Run SQL get queries
         
         THE COLUMNS ARE NOT INJECTION SAFE! DO NOT LET USERS SEND ANYTHING HERE, AND NEVER SEND UNTRUSTED INPUT TO table OR columns
@@ -149,4 +150,4 @@ class SqlHelper: # Simple helper for SQL
         self.cur.execute(sql_query, all_items)
         self.conn.commit()
         return "something happened" #TODO add errors
-    
+        
